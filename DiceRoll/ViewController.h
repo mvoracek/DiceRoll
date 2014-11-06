@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet DiceView *thirdDieView;
 @property (weak, nonatomic) IBOutlet DiceView *fourthDieView;
 @property (weak, nonatomic) IBOutlet DiceView *fifthDieView;
+@property (weak, nonatomic) IBOutlet UIButton *rollButton;
 
 
 

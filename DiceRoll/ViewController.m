@@ -15,11 +15,53 @@
 
 @end
 
+static NSString *RollsTakenKey = @"rollsTaken";
+
 @implementation ViewController
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [super viewWillAppear:animated];
+    [self showRollButtonValue];
+}
+
+- (void)showRollButtonValue
+{
+    NSInteger rollsTaken;
+    NSUserDefaults *rollsTakenDefault = [NSUserDefaults standardUserDefaults];
+    
+    if ([rollsTakenDefault objectForKey:RollsTakenKey] != nil) {
+        rollsTaken = [rollsTakenDefault integerForKey:RollsTakenKey];
+    } else {
+        rollsTaken = 1;
+        [rollsTakenDefault setInteger:rollsTaken forKey:RollsTakenKey];
+        [rollsTakenDefault synchronize];
+    }
+    [self updateButtonTitle:rollsTaken];
+}
+
+- (void)updateRollTaken
+{
+    NSUserDefaults *rollsTakenDefault = [NSUserDefaults standardUserDefaults];
+    NSInteger rollsTaken = [rollsTakenDefault integerForKey:RollsTakenKey];
+    
+    if (rollsTaken < 3) {
+        rollsTaken++;
+        [rollsTakenDefault setInteger:rollsTaken forKey:RollsTakenKey];
+        [rollsTakenDefault synchronize];
+    } else {
+        rollsTaken = 1;
+        [rollsTakenDefault setInteger:rollsTaken forKey:RollsTakenKey];
+        [rollsTakenDefault synchronize];
+    }
+    
+    [self updateButtonTitle:rollsTaken];
+}
+
+- (void)updateButtonTitle:(NSInteger)rollsTaken
+{
+    NSString *buttonTitle = [NSString stringWithFormat:@"Roll %ld", (long)rollsTaken];
+    [self.rollButton setTitle:buttonTitle forState:UIControlStateNormal];
 }
 
 - (IBAction)rollButtonClicked:(id)sender
@@ -27,6 +69,7 @@
     DiceData *dieData = [[DiceData alloc] init];
     int sum = 0;
     
+    //fast enumerate this, but keep track of each die value
     if (!self.firstDieView.isHeldDie) {
         self.roll1 = [self rollDie:dieData forView:self.firstDieView];
     }
@@ -46,6 +89,7 @@
     sum = self.roll1 + self.roll2 + self.roll3 + self.roll4 + self.roll5;
     
     self.sumLabel.text = [NSString stringWithFormat:@"Sum is %d", sum];
+    [self updateRollTaken];
 }
 
 - (IBAction)dieTapped:(UITapGestureRecognizer *)sender

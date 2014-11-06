@@ -114,6 +114,7 @@
                         <outlet property="fifthDieView" destination="jAB-lo-bvg" id="CGz-jC-4oq"/>
                         <outlet property="firstDieView" destination="GgQ-h1-sTm" id="U3a-MY-PMA"/>
                         <outlet property="fourthDieView" destination="bpo-Qc-Cuu" id="3nb-BH-vz6"/>
+                        <outlet property="rollButton" destination="vZY-bd-3cH" id="7Js-Bv-JxJ"/>
                         <outlet property="secondDieView" destination="Nv6-vv-EFO" id="Xnj-uN-zZD"/>
                         <outlet property="sumLabel" destination="czn-Bm-wUm" id="cWj-br-ZVR"/>
                         <outlet property="thirdDieView" destination="MWc-M5-Mzl" id="xDe-tB-GDZ"/>
