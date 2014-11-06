@@ -47,6 +47,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgQ-h1-sTm" userLabel="Dice View 1" customClass="DiceView">
                                 <rect key="frame" x="180" y="115" width="60" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="XKR-t2-hIa" appends="YES" id="GLH-kI-eir"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nv6-vv-EFO" userLabel="Dice View 2" customClass="DiceView">
                                 <rect key="frame" x="270" y="115" width="60" height="60"/>
@@ -55,18 +58,30 @@
                                     <constraint firstAttribute="width" constant="60" id="Wga-Nd-h8b"/>
                                     <constraint firstAttribute="height" constant="60" id="qda-ws-qyJ"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="CRV-ZS-sGz" appends="YES" id="F3s-4K-kV7"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWc-M5-Mzl" userLabel="Dice View 3" customClass="DiceView">
                                 <rect key="frame" x="360" y="115" width="60" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="2Bs-Cm-7zr" appends="YES" id="UlW-9A-ML4"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpo-Qc-Cuu" userLabel="Dice View 4" customClass="DiceView">
                                 <rect key="frame" x="225" y="195" width="60" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="vI0-cu-06o" appends="YES" id="vBn-9T-gGk"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jAB-lo-bvg" userLabel="Dice View 5" customClass="DiceView">
                                 <rect key="frame" x="315" y="195" width="60" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="u7K-K2-HJW" appends="YES" id="mEx-zn-hw1"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -105,9 +120,29 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="pS7-AI-ame">
+                <tapGestureRecognizer id="XKR-t2-hIa">
                     <connections>
-                        <action selector="dieTapped:" destination="vXZ-lx-hvc" id="0Me-5l-IIu"/>
+                        <action selector="dieTapped:" destination="vXZ-lx-hvc" id="0ja-CM-DHl"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="CRV-ZS-sGz">
+                    <connections>
+                        <action selector="dieTapped:" destination="vXZ-lx-hvc" id="Hcl-pk-wLe"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="2Bs-Cm-7zr">
+                    <connections>
+                        <action selector="dieTapped:" destination="vXZ-lx-hvc" id="P7c-iA-Gow"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="vI0-cu-06o">
+                    <connections>
+                        <action selector="dieTapped:" destination="vXZ-lx-hvc" id="PC7-VX-CKs"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="u7K-K2-HJW">
+                    <connections>
+                        <action selector="dieTapped:" destination="vXZ-lx-hvc" id="EOz-q8-6Q8"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

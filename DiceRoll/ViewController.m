@@ -18,12 +18,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    for (DiceView *die in self.view.subviews) {
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dieTapped:)];
-        tap.delegate = self;
-        [die addGestureRecognizer:tap];
-    }
 }
 
 - (IBAction)rollButtonClicked:(id)sender
@@ -48,10 +42,13 @@
     self.sumLabel.text = [NSString stringWithFormat:@"Sum is %d", sum];
 }
 
-- (IBAction)dieTapped:(id)sender
+- (IBAction)dieTapped:(UITapGestureRecognizer *)sender
 {
-    sender
+    if (sender.view.alpha == 1.0) {
+        sender.view.alpha = 0.5;
+    } else {
+        sender.view.alpha = 1.0;
+    }
 }
-
 
 @end
