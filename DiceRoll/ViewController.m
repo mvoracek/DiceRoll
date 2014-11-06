@@ -11,6 +11,8 @@
 
 @interface ViewController ()
 
+@property int roll1, roll2, roll3, roll4, roll5;
+
 @end
 
 @implementation ViewController
@@ -23,32 +25,47 @@
 - (IBAction)rollButtonClicked:(id)sender
 {
     DiceData *dieData = [[DiceData alloc] init];
+    int sum = 0;
     
-    int roll1 = [dieData getDiceRoll];
-    int roll2 = [dieData getDiceRoll];
-    int roll3 = [dieData getDiceRoll];
-    int roll4 = [dieData getDiceRoll];
-    int roll5 = [dieData getDiceRoll];
-
+    if (!self.firstDieView.isHeldDie) {
+        self.roll1 = [self rollDie:dieData forView:self.firstDieView];
+    }
+    if (!self.secondDieView.isHeldDie) {
+        self.roll2 = [self rollDie:dieData forView:self.secondDieView];
+    }
+    if (!self.thirdDieView.isHeldDie) {
+        self.roll3 = [self rollDie:dieData forView:self.thirdDieView];
+    }
+    if (!self.fourthDieView.isHeldDie) {
+        self.roll4 = [self rollDie:dieData forView:self.fourthDieView];
+    }
+    if (!self.fifthDieView.isHeldDie) {
+        self.roll5 = [self rollDie:dieData forView:self.fifthDieView];
+    }
     
-    [self.firstDieView showDie:roll1];
-    [self.secondDieView showDie:roll2];
-    [self.thirdDieView showDie:roll3];
-    [self.fourthDieView showDie:roll4];
-    [self.fifthDieView showDie:roll5];
-    
-    int sum = roll1 + roll2 + roll3 + roll4 + roll5;
+    sum = self.roll1 + self.roll2 + self.roll3 + self.roll4 + self.roll5;
     
     self.sumLabel.text = [NSString stringWithFormat:@"Sum is %d", sum];
 }
 
 - (IBAction)dieTapped:(UITapGestureRecognizer *)sender
 {
+    DiceView *die = (DiceView *)sender.view;
+    
     if (sender.view.alpha == 1.0) {
-        sender.view.alpha = 0.5;
+        die.alpha = 0.5;
+        die.isHeldDie = YES;
     } else {
-        sender.view.alpha = 1.0;
+        die.alpha = 1.0;
+        die.isHeldDie = NO;
     }
+}
+
+- (int)rollDie:(DiceData *)dieData forView:(DiceView *)die
+{
+    int roll = [dieData getDiceRoll];
+    [die showDie:roll];
+    return roll;
 }
 
 @end
