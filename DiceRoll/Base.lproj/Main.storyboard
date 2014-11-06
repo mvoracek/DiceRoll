@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +15,106 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="felt" translatesAutoresizingMaskIntoConstraints="NO" id="dsJ-NY-GU3">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click To Roll" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czn-Bm-wUm">
+                                <rect key="frame" x="240" y="40" width="120" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="EUJ-Dq-u6y"/>
+                                    <constraint firstAttribute="height" constant="30" id="eOM-S9-fRA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZY-bd-3cH">
+                                <rect key="frame" x="240" y="498" width="120" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0qG-6b-Gbu"/>
+                                    <constraint firstAttribute="width" constant="120" id="iW2-SF-7Ns"/>
+                                </constraints>
+                                <state key="normal" title="Roll">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rollButtonClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="r2B-Dg-yJz"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgQ-h1-sTm" userLabel="Dice View 1" customClass="DiceView">
+                                <rect key="frame" x="180" y="115" width="60" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nv6-vv-EFO" userLabel="Dice View 2" customClass="DiceView">
+                                <rect key="frame" x="270" y="115" width="60" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Wga-Nd-h8b"/>
+                                    <constraint firstAttribute="height" constant="60" id="qda-ws-qyJ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWc-M5-Mzl" userLabel="Dice View 3" customClass="DiceView">
+                                <rect key="frame" x="360" y="115" width="60" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpo-Qc-Cuu" userLabel="Dice View 4" customClass="DiceView">
+                                <rect key="frame" x="225" y="195" width="60" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jAB-lo-bvg" userLabel="Dice View 5" customClass="DiceView">
+                                <rect key="frame" x="315" y="195" width="60" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bpo-Qc-Cuu" firstAttribute="height" secondItem="Nv6-vv-EFO" secondAttribute="height" id="2UC-n6-Tep"/>
+                            <constraint firstItem="GgQ-h1-sTm" firstAttribute="width" secondItem="Nv6-vv-EFO" secondAttribute="width" id="3oM-E2-jL3"/>
+                            <constraint firstItem="MWc-M5-Mzl" firstAttribute="leading" secondItem="Nv6-vv-EFO" secondAttribute="trailing" constant="30" id="7Um-aV-Zs0"/>
+                            <constraint firstItem="GgQ-h1-sTm" firstAttribute="top" secondItem="Nv6-vv-EFO" secondAttribute="top" id="A1F-ZP-CJb"/>
+                            <constraint firstItem="jAB-lo-bvg" firstAttribute="leading" secondItem="Nv6-vv-EFO" secondAttribute="trailing" constant="-15" id="BND-wn-K6i"/>
+                            <constraint firstItem="Nv6-vv-EFO" firstAttribute="height" secondItem="jAB-lo-bvg" secondAttribute="height" id="CSV-TI-Foo"/>
+                            <constraint firstItem="Nv6-vv-EFO" firstAttribute="centerY" secondItem="czn-Bm-wUm" secondAttribute="centerY" constant="90" id="Fng-Lg-eBt"/>
+                            <constraint firstItem="GgQ-h1-sTm" firstAttribute="height" secondItem="Nv6-vv-EFO" secondAttribute="height" id="IVv-Wd-vUr"/>
+                            <constraint firstItem="bpo-Qc-Cuu" firstAttribute="top" secondItem="Nv6-vv-EFO" secondAttribute="bottom" constant="20" id="OSa-g2-0rB"/>
+                            <constraint firstItem="MWc-M5-Mzl" firstAttribute="top" secondItem="Nv6-vv-EFO" secondAttribute="top" id="PGp-k4-yMq"/>
+                            <constraint firstItem="Nv6-vv-EFO" firstAttribute="centerY" secondItem="jAB-lo-bvg" secondAttribute="centerY" constant="-80" id="YgO-dA-0S9"/>
+                            <constraint firstItem="MWc-M5-Mzl" firstAttribute="width" secondItem="Nv6-vv-EFO" secondAttribute="width" id="ZLP-SQ-51r"/>
+                            <constraint firstAttribute="centerX" secondItem="vZY-bd-3cH" secondAttribute="centerX" id="ZmK-YF-oNH"/>
+                            <constraint firstItem="MWc-M5-Mzl" firstAttribute="height" secondItem="Nv6-vv-EFO" secondAttribute="height" id="a22-vc-dQX"/>
+                            <constraint firstItem="Nv6-vv-EFO" firstAttribute="leading" secondItem="bpo-Qc-Cuu" secondAttribute="trailing" constant="-15" id="b6H-ma-pIV"/>
+                            <constraint firstItem="Nv6-vv-EFO" firstAttribute="leading" secondItem="czn-Bm-wUm" secondAttribute="trailing" constant="-90" id="c1L-Pp-884"/>
+                            <constraint firstItem="Nv6-vv-EFO" firstAttribute="width" secondItem="jAB-lo-bvg" secondAttribute="width" id="d48-Ms-w6E"/>
+                            <constraint firstItem="czn-Bm-wUm" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="kba-M7-ZSg"/>
+                            <constraint firstItem="Nv6-vv-EFO" firstAttribute="leading" secondItem="GgQ-h1-sTm" secondAttribute="trailing" constant="30" id="lil-vw-P9q"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="vZY-bd-3cH" secondAttribute="bottom" constant="72" id="sxE-0m-lOO"/>
+                            <constraint firstItem="bpo-Qc-Cuu" firstAttribute="width" secondItem="Nv6-vv-EFO" secondAttribute="width" id="vge-iu-zeR"/>
+                            <constraint firstAttribute="centerX" secondItem="czn-Bm-wUm" secondAttribute="centerX" id="wEk-ix-iPG"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fifthDieView" destination="jAB-lo-bvg" id="CGz-jC-4oq"/>
+                        <outlet property="firstDieView" destination="GgQ-h1-sTm" id="U3a-MY-PMA"/>
+                        <outlet property="fourthDieView" destination="bpo-Qc-Cuu" id="3nb-BH-vz6"/>
+                        <outlet property="secondDieView" destination="Nv6-vv-EFO" id="Xnj-uN-zZD"/>
+                        <outlet property="sumLabel" destination="czn-Bm-wUm" id="cWj-br-ZVR"/>
+                        <outlet property="thirdDieView" destination="MWc-M5-Mzl" id="xDe-tB-GDZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="pS7-AI-ame">
+                    <connections>
+                        <action selector="dieTapped:" destination="vXZ-lx-hvc" id="0Me-5l-IIu"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="328" y="133"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="felt" width="500" height="375"/>
+    </resources>
 </document>

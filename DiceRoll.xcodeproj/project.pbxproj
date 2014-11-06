@@ -15,6 +15,8 @@
 		C91C43B01A0A836F00EF74D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C91C43AF1A0A836F00EF74D4 /* Images.xcassets */; };
 		C91C43B31A0A836F00EF74D4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C91C43B11A0A836F00EF74D4 /* LaunchScreen.xib */; };
 		C91C43BF1A0A836F00EF74D4 /* DiceRollTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C91C43BE1A0A836F00EF74D4 /* DiceRollTests.m */; };
+		C91C43CA1A0A841300EF74D4 /* DiceData.m in Sources */ = {isa = PBXBuildFile; fileRef = C91C43C91A0A841300EF74D4 /* DiceData.m */; };
+		C91C43CD1A0A857D00EF74D4 /* DiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = C91C43CC1A0A857D00EF74D4 /* DiceView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,10 @@
 		C91C43B81A0A836F00EF74D4 /* DiceRollTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiceRollTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C91C43BD1A0A836F00EF74D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C91C43BE1A0A836F00EF74D4 /* DiceRollTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiceRollTests.m; sourceTree = "<group>"; };
+		C91C43C81A0A841300EF74D4 /* DiceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiceData.h; sourceTree = "<group>"; };
+		C91C43C91A0A841300EF74D4 /* DiceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiceData.m; sourceTree = "<group>"; };
+		C91C43CB1A0A857D00EF74D4 /* DiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiceView.h; sourceTree = "<group>"; };
+		C91C43CC1A0A857D00EF74D4 /* DiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiceView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,10 @@
 				C91C43A41A0A836F00EF74D4 /* AppDelegate.m */,
 				C91C43A91A0A836F00EF74D4 /* ViewController.h */,
 				C91C43AA1A0A836F00EF74D4 /* ViewController.m */,
+				C91C43C81A0A841300EF74D4 /* DiceData.h */,
+				C91C43C91A0A841300EF74D4 /* DiceData.m */,
+				C91C43CB1A0A857D00EF74D4 /* DiceView.h */,
+				C91C43CC1A0A857D00EF74D4 /* DiceView.m */,
 				C91C43AC1A0A836F00EF74D4 /* Main.storyboard */,
 				C91C43AF1A0A836F00EF74D4 /* Images.xcassets */,
 				C91C43B11A0A836F00EF74D4 /* LaunchScreen.xib */,
@@ -224,6 +234,8 @@
 			files = (
 				C91C43A81A0A836F00EF74D4 /* DiceRoll.xcdatamodeld in Sources */,
 				C91C43A51A0A836F00EF74D4 /* AppDelegate.m in Sources */,
+				C91C43CA1A0A841300EF74D4 /* DiceData.m in Sources */,
+				C91C43CD1A0A857D00EF74D4 /* DiceView.m in Sources */,
 				C91C43AB1A0A836F00EF74D4 /* ViewController.m in Sources */,
 				C91C43A21A0A836F00EF74D4 /* main.m in Sources */,
 			);

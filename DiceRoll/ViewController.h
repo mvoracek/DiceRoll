@@ -7,8 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DiceView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UIGestureRecognizerDelegate>
+
+@property (weak, nonatomic) IBOutlet UILabel *sumLabel;
+@property (weak, nonatomic) IBOutlet DiceView *firstDieView;
+@property (weak, nonatomic) IBOutlet DiceView *secondDieView;
+@property (weak, nonatomic) IBOutlet DiceView *thirdDieView;
+@property (weak, nonatomic) IBOutlet DiceView *fourthDieView;
+@property (weak, nonatomic) IBOutlet DiceView *fifthDieView;
+
 
 
 @end
