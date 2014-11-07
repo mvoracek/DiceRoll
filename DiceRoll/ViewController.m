@@ -11,7 +11,7 @@
 
 @interface ViewController ()
 
-@property int roll1, roll2, roll3, roll4, roll5;
+@property int roll1, roll2, roll3, roll4, roll5, sum;
 
 @end
 
@@ -53,8 +53,21 @@ static NSString *RollsTakenKey = @"rollsTaken";
         rollsTaken = 1;
         [rollsTakenDefault setInteger:rollsTaken forKey:RollsTakenKey];
         [rollsTakenDefault synchronize];
+        //tried to fast enumerate, would not work
+        [self.firstDieView setAlpha:1.0];
+        [self.firstDieView setIsHeldDie:NO];
+        [self.secondDieView setAlpha:1.0];
+        [self.secondDieView setIsHeldDie:NO];
+        [self.thirdDieView setAlpha:1.0];
+        [self.thirdDieView setIsHeldDie:NO];
+        [self.fourthDieView setAlpha:1.0];
+        [self.fourthDieView setIsHeldDie:NO];
+        [self.fifthDieView setAlpha:1.0];
+        [self.fifthDieView setIsHeldDie:NO];
     }
     
+    self.sum = self.roll1 + self.roll2 + self.roll3 + self.roll4 + self.roll5;
+    self.sumLabel.text = [NSString stringWithFormat:@"Sum is %d", self.sum];
     [self updateButtonTitle:rollsTaken];
 }
 
@@ -67,7 +80,6 @@ static NSString *RollsTakenKey = @"rollsTaken";
 - (IBAction)rollButtonClicked:(id)sender
 {
     DiceData *dieData = [[DiceData alloc] init];
-    int sum = 0;
     
     //fast enumerate this, but keep track of each die value
     if (!self.firstDieView.isHeldDie) {
@@ -85,10 +97,7 @@ static NSString *RollsTakenKey = @"rollsTaken";
     if (!self.fifthDieView.isHeldDie) {
         self.roll5 = [self rollDie:dieData forView:self.fifthDieView];
     }
-    
-    sum = self.roll1 + self.roll2 + self.roll3 + self.roll4 + self.roll5;
-    
-    self.sumLabel.text = [NSString stringWithFormat:@"Sum is %d", sum];
+
     [self updateRollTaken];
 }
 
