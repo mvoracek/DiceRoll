@@ -11,7 +11,7 @@
 
 @interface ViewController ()
 
-@property int roll1, roll2, roll3, roll4, roll5, sum;
+@property int roll1, roll2, roll3, roll4, roll5, roll6, sum;
 
 @end
 
@@ -64,10 +64,12 @@ static NSString *RollsTakenKey = @"rollsTaken";
         [self.fourthDieView setIsHeldDie:NO];
         [self.fifthDieView setAlpha:1.0];
         [self.fifthDieView setIsHeldDie:NO];
+        [self.sixthDieView setAlpha:1.0];
+        [self.sixthDieView setIsHeldDie:NO];
     }
     
-    self.sum = self.roll1 + self.roll2 + self.roll3 + self.roll4 + self.roll5;
-    self.sumLabel.text = [NSString stringWithFormat:@"Sum is %d", self.sum];
+    self.sum = self.roll1 + self.roll2 + self.roll3 + self.roll4 + self.roll5 +self.roll6;
+    self.sumLabel.text = [NSString stringWithFormat:@"Dice Total: %d", self.sum];
     [self updateButtonTitle:rollsTaken];
 }
 
@@ -96,6 +98,9 @@ static NSString *RollsTakenKey = @"rollsTaken";
     }
     if (!self.fifthDieView.isHeldDie) {
         self.roll5 = [self rollDie:dieData forView:self.fifthDieView];
+    }
+    if (!self.sixthDieView.isHeldDie) {
+        self.roll6 = [self rollDie:dieData forView:self.sixthDieView];
     }
 
     [self updateRollTaken];

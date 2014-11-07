@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9038C231A0D7E4900815B51 /* ScoringData.m in Sources */ = {isa = PBXBuildFile; fileRef = C9038C221A0D7E4900815B51 /* ScoringData.m */; };
 		C91C43A21A0A836F00EF74D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C91C43A11A0A836F00EF74D4 /* main.m */; };
 		C91C43A51A0A836F00EF74D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C91C43A41A0A836F00EF74D4 /* AppDelegate.m */; };
 		C91C43A81A0A836F00EF74D4 /* DiceRoll.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C91C43A61A0A836F00EF74D4 /* DiceRoll.xcdatamodeld */; };
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C9038C211A0D7E4900815B51 /* ScoringData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoringData.h; sourceTree = "<group>"; };
+		C9038C221A0D7E4900815B51 /* ScoringData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoringData.m; sourceTree = "<group>"; };
 		C91C439C1A0A836F00EF74D4 /* DiceRoll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiceRoll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C91C43A01A0A836F00EF74D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C91C43A11A0A836F00EF74D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -97,6 +100,8 @@
 				C91C43C91A0A841300EF74D4 /* DiceData.m */,
 				C91C43CB1A0A857D00EF74D4 /* DiceView.h */,
 				C91C43CC1A0A857D00EF74D4 /* DiceView.m */,
+				C9038C211A0D7E4900815B51 /* ScoringData.h */,
+				C9038C221A0D7E4900815B51 /* ScoringData.m */,
 				C91C43AC1A0A836F00EF74D4 /* Main.storyboard */,
 				C91C43AF1A0A836F00EF74D4 /* Images.xcassets */,
 				C91C43B11A0A836F00EF74D4 /* LaunchScreen.xib */,
@@ -234,6 +239,7 @@
 			files = (
 				C91C43A81A0A836F00EF74D4 /* DiceRoll.xcdatamodeld in Sources */,
 				C91C43A51A0A836F00EF74D4 /* AppDelegate.m in Sources */,
+				C9038C231A0D7E4900815B51 /* ScoringData.m in Sources */,
 				C91C43CA1A0A841300EF74D4 /* DiceData.m in Sources */,
 				C91C43CD1A0A857D00EF74D4 /* DiceView.m in Sources */,
 				C91C43AB1A0A836F00EF74D4 /* ViewController.m in Sources */,
@@ -428,6 +434,7 @@
 				C91C43C41A0A836F00EF74D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C91C43C51A0A836F00EF74D4 /* Build configuration list for PBXNativeTarget "DiceRollTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +443,7 @@
 				C91C43C71A0A836F00EF74D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
