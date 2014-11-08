@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "DiceData.h"
+#import "ScoringData.h"
 
 @interface ViewController ()
 
@@ -22,6 +23,7 @@ static NSString *RollsTakenKey = @"rollsTaken";
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
     [self showRollButtonValue];
 }
 
@@ -40,8 +42,9 @@ static NSString *RollsTakenKey = @"rollsTaken";
     [self updateButtonTitle:rollsTaken];
 }
 
-- (void)updateRollTaken
+- (void)updateRollTaken:(NSMutableArray *)array
 {
+    ScoringData *scoringData = [[ScoringData alloc] init];
     NSUserDefaults *rollsTakenDefault = [NSUserDefaults standardUserDefaults];
     NSInteger rollsTaken = [rollsTakenDefault integerForKey:RollsTakenKey];
     
@@ -68,6 +71,8 @@ static NSString *RollsTakenKey = @"rollsTaken";
         [self.sixthDieView setIsHeldDie:NO];
     }
     
+    self.sum = [scoringData checkDiceForScore:array];
+    
     self.sum = self.roll1 + self.roll2 + self.roll3 + self.roll4 + self.roll5 +self.roll6;
     self.sumLabel.text = [NSString stringWithFormat:@"Dice Total: %d", self.sum];
     [self updateButtonTitle:rollsTaken];
@@ -82,6 +87,7 @@ static NSString *RollsTakenKey = @"rollsTaken";
 - (IBAction)rollButtonClicked:(id)sender
 {
     DiceData *dieData = [[DiceData alloc] init];
+    NSMutableArray *dice = [NSMutableArray array];
     
     //fast enumerate this, but keep track of each die value
     if (!self.firstDieView.isHeldDie) {
@@ -102,8 +108,15 @@ static NSString *RollsTakenKey = @"rollsTaken";
     if (!self.sixthDieView.isHeldDie) {
         self.roll6 = [self rollDie:dieData forView:self.sixthDieView];
     }
+    
+    [self addDie:self.roll1 toArray:dice];
+    [self addDie:self.roll2 toArray:dice];
+    [self addDie:self.roll3 toArray:dice];
+    [self addDie:self.roll4 toArray:dice];
+    [self addDie:self.roll5 toArray:dice];
+    [self addDie:self.roll6 toArray:dice];
 
-    [self updateRollTaken];
+    [self updateRollTaken:dice];
 }
 
 - (IBAction)dieTapped:(UITapGestureRecognizer *)sender
@@ -124,6 +137,12 @@ static NSString *RollsTakenKey = @"rollsTaken";
     int roll = [dieData getDiceRoll];
     [die showDie:roll];
     return roll;
+}
+
+- (void)addDie:(int)die toArray:(NSMutableArray *)array
+{
+    NSNumber *dieNumber = [NSNumber numberWithInt:die];
+    [array addObject:dieNumber];
 }
 
 @end

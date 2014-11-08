@@ -10,6 +10,6 @@
 
 @interface ScoringData : NSObject
 
-- (void)checkDiceForScore:(NSArray *)dice;
+- (int)checkDiceForScore:(NSArray *)dice;
 
 @end
