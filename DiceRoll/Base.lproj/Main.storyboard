@@ -19,11 +19,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="felt" translatesAutoresizingMaskIntoConstraints="NO" id="dsJ-NY-GU3">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click To Roll" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czn-Bm-wUm">
-                                <rect key="frame" x="240" y="40" width="120" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Die Total:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czn-Bm-wUm">
+                                <rect key="frame" x="220" y="40" width="160" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="EUJ-Dq-u6y"/>
+                                    <constraint firstAttribute="width" constant="160" id="EUJ-Dq-u6y"/>
                                     <constraint firstAttribute="height" constant="30" id="eOM-S9-fRA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -111,7 +111,7 @@
                             <constraint firstItem="MWc-M5-Mzl" firstAttribute="height" secondItem="Nv6-vv-EFO" secondAttribute="height" id="a22-vc-dQX"/>
                             <constraint firstItem="Nv6-vv-EFO" firstAttribute="leading" secondItem="bpo-Qc-Cuu" secondAttribute="trailing" constant="30" id="b6H-ma-pIV"/>
                             <constraint firstItem="YHF-lM-HDp" firstAttribute="top" secondItem="Nv6-vv-EFO" secondAttribute="bottom" constant="20" id="bfR-Ug-pd3"/>
-                            <constraint firstItem="Nv6-vv-EFO" firstAttribute="leading" secondItem="czn-Bm-wUm" secondAttribute="trailing" constant="-90" id="c1L-Pp-884"/>
+                            <constraint firstItem="Nv6-vv-EFO" firstAttribute="leading" secondItem="czn-Bm-wUm" secondAttribute="trailing" constant="-110" id="c1L-Pp-884"/>
                             <constraint firstItem="Nv6-vv-EFO" firstAttribute="width" secondItem="jAB-lo-bvg" secondAttribute="width" id="d48-Ms-w6E"/>
                             <constraint firstItem="czn-Bm-wUm" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="kba-M7-ZSg"/>
                             <constraint firstItem="Nv6-vv-EFO" firstAttribute="width" secondItem="YHF-lM-HDp" secondAttribute="width" id="lg7-YB-yEO"/>

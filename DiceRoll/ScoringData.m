@@ -70,7 +70,7 @@
                 return 2000;
             }
         }
-        if ([value isEqualToNumber:@2] && counts.count == 3) {
+        if (counts.count == 3 && [counts[0] isEqualToNumber:@2] && [counts[1] isEqualToNumber:@2] && [counts[2] isEqualToNumber:@2]) {
             return 1500;
         }
         if ([value isEqualToNumber:@1] && counts.count == 6) {
@@ -108,6 +108,14 @@
         }
     }
     
+    if ([ones isEqualToNumber:@2] || [ones isEqualToNumber:@1]) {
+        sum += (100 * [ones intValue]);
+    }
+    
+    if ([fives isEqualToNumber:@2] || [fives isEqualToNumber:@1]) {
+        sum += (50 * [fives intValue]);
+    }
+
     return sum;
 }
 

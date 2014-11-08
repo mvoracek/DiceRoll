@@ -44,6 +44,7 @@ static NSString *RollsTakenKey = @"rollsTaken";
 
 - (void)updateRollTaken:(NSMutableArray *)array
 {
+    int sum = 0;
     ScoringData *scoringData = [[ScoringData alloc] init];
     NSUserDefaults *rollsTakenDefault = [NSUserDefaults standardUserDefaults];
     NSInteger rollsTaken = [rollsTakenDefault integerForKey:RollsTakenKey];
@@ -71,9 +72,9 @@ static NSString *RollsTakenKey = @"rollsTaken";
         [self.sixthDieView setIsHeldDie:NO];
     }
     
-    self.sum = [scoringData checkDiceForScore:array];
+    sum = [scoringData checkDiceForScore:array];
     
-    self.sum = self.roll1 + self.roll2 + self.roll3 + self.roll4 + self.roll5 +self.roll6;
+    self.sum = sum;
     self.sumLabel.text = [NSString stringWithFormat:@"Dice Total: %d", self.sum];
     [self updateButtonTitle:rollsTaken];
 }
