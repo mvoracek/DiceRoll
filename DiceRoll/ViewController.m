@@ -63,21 +63,25 @@ static NSString *TotalScoreKey = @"totalScore";
     [self updateRollScore];
 }
 
-- (void) resetDieViews
+- (void)resetDieViews
+{
+    [self resetForDieView:self.firstDieView];
+    [self resetForDieView:self.secondDieView];
+    [self resetForDieView:self.thirdDieView];
+    [self resetForDieView:self.fourthDieView];
+    [self resetForDieView:self.fifthDieView];
+    [self resetForDieView:self.sixthDieView];
+}
+
+- (void) resetForDieView:(DiceView *)die
 {
     //tried to fast enumerate, would not work
-    [self.firstDieView setAlpha:1.0];
-    [self.firstDieView setIsHeldDie:NO];
-    [self.secondDieView setAlpha:1.0];
-    [self.secondDieView setIsHeldDie:NO];
-    [self.thirdDieView setAlpha:1.0];
-    [self.thirdDieView setIsHeldDie:NO];
-    [self.fourthDieView setAlpha:1.0];
-    [self.fourthDieView setIsHeldDie:NO];
-    [self.fifthDieView setAlpha:1.0];
-    [self.fifthDieView setIsHeldDie:NO];
-    [self.sixthDieView setAlpha:1.0];
-    [self.sixthDieView setIsHeldDie:NO];
+    [die setAlpha:1.0];
+    [die setUserInteractionEnabled:YES];
+    [die setBackgroundColor:[UIColor clearColor]];
+    [die setIsHeldDie:NO];
+    [die setDieHasPoints:NO];
+    [die setRoll:0];
 }
 
 - (IBAction)bankButtonClicked:(id)sender
@@ -97,35 +101,14 @@ static NSString *TotalScoreKey = @"totalScore";
 
 - (IBAction)rollButtonClicked:(id)sender
 {
-    DiceData *dieData = [[DiceData alloc] init];
     NSMutableArray *dice = [NSMutableArray array];
     
-    //fast enumerate this, but keep track of each die value
-    if (!self.firstDieView.isHeldDie) {
-        self.roll1 = [self rollDie:dieData forView:self.firstDieView];
-    }
-    if (!self.secondDieView.isHeldDie) {
-        self.roll2 = [self rollDie:dieData forView:self.secondDieView];
-    }
-    if (!self.thirdDieView.isHeldDie) {
-        self.roll3 = [self rollDie:dieData forView:self.thirdDieView];
-    }
-    if (!self.fourthDieView.isHeldDie) {
-        self.roll4 = [self rollDie:dieData forView:self.fourthDieView];
-    }
-    if (!self.fifthDieView.isHeldDie) {
-        self.roll5 = [self rollDie:dieData forView:self.fifthDieView];
-    }
-    if (!self.sixthDieView.isHeldDie) {
-        self.roll6 = [self rollDie:dieData forView:self.sixthDieView];
-    }
-    
-    [self addDie:self.roll1 toArray:dice];
-    [self addDie:self.roll2 toArray:dice];
-    [self addDie:self.roll3 toArray:dice];
-    [self addDie:self.roll4 toArray:dice];
-    [self addDie:self.roll5 toArray:dice];
-    [self addDie:self.roll6 toArray:dice];
+    [self checkForHeldDie:self.firstDieView forDice:dice];
+    [self checkForHeldDie:self.secondDieView forDice:dice];
+    [self checkForHeldDie:self.thirdDieView forDice:dice];
+    [self checkForHeldDie:self.fourthDieView forDice:dice];
+    [self checkForHeldDie:self.fifthDieView forDice:dice];
+    [self checkForHeldDie:self.sixthDieView forDice:dice];
 
     [self updateRollTaken:dice];
 }
@@ -141,6 +124,20 @@ static NSString *TotalScoreKey = @"totalScore";
         die.alpha = 1.0;
         die.isHeldDie = NO;
     }
+}
+
+- (void)checkForHeldDie:(DiceView *)dieView forDice:(NSMutableArray *)dice
+{
+    DiceData *dieData = [[DiceData alloc] init];
+    
+    if (!dieView.isHeldDie) {
+        dieView.roll = [self rollDie:dieData forView:dieView];
+    } else {
+        [dieView setDieHasPoints:YES];
+        [dieView setBackgroundColor:[UIColor redColor]];
+        [dieView setUserInteractionEnabled:NO];
+    }
+    [self addDie:dieView.roll toArray:dice];
 }
 
 - (int)rollDie:(DiceData *)dieData forView:(DiceView *)die

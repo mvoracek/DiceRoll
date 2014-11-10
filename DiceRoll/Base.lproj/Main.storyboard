@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="felt" translatesAutoresizingMaskIntoConstraints="NO" id="dsJ-NY-GU3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="felt" translatesAutoresizingMaskIntoConstraints="NO" id="dsJ-NY-GU3">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Die Total:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czn-Bm-wUm">
@@ -114,6 +115,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="dsJ-NY-GU3" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="-20" id="0b5-Pv-N95"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dsJ-NY-GU3" secondAttribute="trailing" constant="-16" id="0xo-Ur-msp"/>
                             <constraint firstItem="bpo-Qc-Cuu" firstAttribute="height" secondItem="Nv6-vv-EFO" secondAttribute="height" id="2UC-n6-Tep"/>
                             <constraint firstItem="GgQ-h1-sTm" firstAttribute="width" secondItem="Nv6-vv-EFO" secondAttribute="width" id="3oM-E2-jL3"/>
                             <constraint firstItem="MWc-M5-Mzl" firstAttribute="leading" secondItem="Nv6-vv-EFO" secondAttribute="trailing" constant="30" id="7Um-aV-Zs0"/>
@@ -134,6 +137,8 @@
                             <constraint firstItem="MWc-M5-Mzl" firstAttribute="width" secondItem="Nv6-vv-EFO" secondAttribute="width" id="ZLP-SQ-51r"/>
                             <constraint firstAttribute="centerX" secondItem="vZY-bd-3cH" secondAttribute="centerX" id="ZmK-YF-oNH"/>
                             <constraint firstItem="MWc-M5-Mzl" firstAttribute="height" secondItem="Nv6-vv-EFO" secondAttribute="height" id="a22-vc-dQX"/>
+                            <constraint firstItem="dsJ-NY-GU3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="aVW-Lx-Qci"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="dsJ-NY-GU3" secondAttribute="bottom" id="aza-IT-BiY"/>
                             <constraint firstItem="Nv6-vv-EFO" firstAttribute="leading" secondItem="bpo-Qc-Cuu" secondAttribute="trailing" constant="30" id="b6H-ma-pIV"/>
                             <constraint firstAttribute="centerX" secondItem="3tk-Zs-7i1" secondAttribute="centerX" id="bRb-v6-27R"/>
                             <constraint firstItem="YHF-lM-HDp" firstAttribute="top" secondItem="Nv6-vv-EFO" secondAttribute="bottom" constant="20" id="bfR-Ug-pd3"/>
