@@ -22,18 +22,18 @@
     int sum = 0;
 
     //sorting die values
-    for (NSNumber *die in dice) {
-        if ([die isEqual: @1]) {
+    for (DiceView *die in dice) {
+        if (die.roll == 1) {
             ones = [NSNumber numberWithInt:[ones intValue] + 1];
-        } else if ([die isEqual: @2]) {
+        } else if (die.roll == 2) {
             twos = [NSNumber numberWithInt:[twos intValue] + 1];
-        } else if ([die isEqual: @3]) {
+        } else if (die.roll == 3) {
             threes = [NSNumber numberWithInt:[threes intValue] + 1];
-        } else if ([die isEqual: @4]) {
+        } else if (die.roll == 4) {
             fours = [NSNumber numberWithInt:[fours intValue] + 1];
-        } else if ([die isEqual: @5]) {
+        } else if (die.roll == 5) {
             fives = [NSNumber numberWithInt:[fives intValue] + 1];
-        } else if ([die isEqual: @6]) {
+        } else if (die.roll == 6) {
             sixes = [NSNumber numberWithInt:[sixes intValue] + 1];
         }
     }
@@ -64,7 +64,7 @@
         if ([value isEqualToNumber:@5]) {
             if ([ones isEqualToNumber:@1]) {
                 return 2100;
-            } else if ([fives isEqualToNumber:@5]) {
+            } else if ([fives isEqualToNumber:@1]) {
                 return 2050;
             } else {
                 return 2000;
@@ -117,6 +117,13 @@
     }
 
     return sum;
+}
+
+- (void)setDieForPoints:(DiceView *)die
+{
+    [die setDieHasPoints:YES];
+    [die setBackgroundColor:[UIColor redColor]];
+    [die setUserInteractionEnabled:NO];
 }
 
 @end

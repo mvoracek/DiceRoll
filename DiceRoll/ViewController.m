@@ -52,13 +52,13 @@ static NSString *TotalScoreKey = @"totalScore";
     int sum = 0;
     ScoringData *scoringData = [[ScoringData alloc] init];
     
-    sum = [scoringData checkDiceForScore:array];
+    sum += [scoringData checkDiceForScore:array];
     
-    if (sum == self.sum) {
+    if (sum == 0) {
         self.sum = 0;
         [self resetDieViews];
     } else {
-        self.sum = sum;
+        self.sum += sum;
     }
     [self updateRollScore];
 }
@@ -103,12 +103,12 @@ static NSString *TotalScoreKey = @"totalScore";
 {
     NSMutableArray *dice = [NSMutableArray array];
     
-    [self checkForHeldDie:self.firstDieView forDice:dice];
-    [self checkForHeldDie:self.secondDieView forDice:dice];
-    [self checkForHeldDie:self.thirdDieView forDice:dice];
-    [self checkForHeldDie:self.fourthDieView forDice:dice];
-    [self checkForHeldDie:self.fifthDieView forDice:dice];
-    [self checkForHeldDie:self.sixthDieView forDice:dice];
+    [self checkForHeldDie:self.firstDieView position:1 forDice:dice];
+    [self checkForHeldDie:self.secondDieView position:2 forDice:dice];
+    [self checkForHeldDie:self.thirdDieView position:3 forDice:dice];
+    [self checkForHeldDie:self.fourthDieView position:4 forDice:dice];
+    [self checkForHeldDie:self.fifthDieView position:5 forDice:dice];
+    [self checkForHeldDie:self.sixthDieView position:6 forDice:dice];
 
     [self updateRollTaken:dice];
 }
@@ -126,18 +126,20 @@ static NSString *TotalScoreKey = @"totalScore";
     }
 }
 
-- (void)checkForHeldDie:(DiceView *)dieView forDice:(NSMutableArray *)dice
+- (void)checkForHeldDie:(DiceView *)dieView position:(int)dieNumber forDice:(NSMutableArray *)dice
 {
     DiceData *dieData = [[DiceData alloc] init];
     
+    dieView.dieNumber = dieNumber;
+    
     if (!dieView.isHeldDie) {
         dieView.roll = [self rollDie:dieData forView:dieView];
+        [dice addObject:dieView];
     } else {
         [dieView setDieHasPoints:YES];
         [dieView setBackgroundColor:[UIColor redColor]];
         [dieView setUserInteractionEnabled:NO];
     }
-    [self addDie:dieView.roll toArray:dice];
 }
 
 - (int)rollDie:(DiceData *)dieData forView:(DiceView *)die
@@ -145,12 +147,6 @@ static NSString *TotalScoreKey = @"totalScore";
     int roll = [dieData getDiceRoll];
     [die showDie:roll];
     return roll;
-}
-
-- (void)addDie:(int)die toArray:(NSMutableArray *)array
-{
-    NSNumber *dieNumber = [NSNumber numberWithInt:die];
-    [array addObject:dieNumber];
 }
 
 @end

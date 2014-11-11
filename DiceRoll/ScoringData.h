@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DiceView.h"
 
 @interface ScoringData : NSObject
 

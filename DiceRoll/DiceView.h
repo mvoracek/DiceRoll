@@ -11,6 +11,7 @@
 @interface DiceView : UIView
 
 @property (nonatomic, strong) UIImageView *dieImage;
+@property int dieNumber;
 @property int roll;
 @property BOOL isHeldDie;
 @property BOOL dieHasPoints;
