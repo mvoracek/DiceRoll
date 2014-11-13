@@ -25,6 +25,9 @@ static NSString *TotalScoreKey = @"totalScore";
 {
     [super viewWillAppear:animated];
     
+    [self.bankButton setUserInteractionEnabled:NO];
+    [self.bankButton setAlpha:0.5];
+    
     NSUserDefaults *totalScoreDefault = [NSUserDefaults standardUserDefaults];
     if ([totalScoreDefault objectForKey:TotalScoreKey] != nil) {
         self.totalScore = [totalScoreDefault integerForKey:TotalScoreKey];
@@ -57,9 +60,16 @@ static NSString *TotalScoreKey = @"totalScore";
     if (sum == 0) {
         self.sum = 0;
         [self resetDieViews];
+        [self.bankButton setUserInteractionEnabled:NO];
+        [self.bankButton setAlpha:0.5];
     } else {
         self.sum += sum;
+        if (self.sum > 300) {
+            [self.bankButton setUserInteractionEnabled:YES];
+            [self.bankButton setAlpha:1.0];
+        }
     }
+    
     [self updateRollScore];
 }
 

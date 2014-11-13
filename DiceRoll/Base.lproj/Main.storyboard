@@ -154,6 +154,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bankButton" destination="i1T-Fz-DyR" id="aZ9-Ck-vlW"/>
                         <outlet property="fifthDieView" destination="jAB-lo-bvg" id="CGz-jC-4oq"/>
                         <outlet property="firstDieView" destination="GgQ-h1-sTm" id="U3a-MY-PMA"/>
                         <outlet property="fourthDieView" destination="bpo-Qc-Cuu" id="3nb-BH-vz6"/>

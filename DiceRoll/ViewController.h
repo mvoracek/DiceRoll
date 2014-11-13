@@ -19,10 +19,8 @@
 @property (weak, nonatomic) IBOutlet DiceView *fifthDieView;
 @property (weak, nonatomic) IBOutlet DiceView *sixthDieView;
 @property (weak, nonatomic) IBOutlet UIButton *rollButton;
+@property (weak, nonatomic) IBOutlet UIButton *bankButton;
 @property (weak, nonatomic) IBOutlet UILabel *totalScoreLabel;
-
-
-
 
 @end
 
