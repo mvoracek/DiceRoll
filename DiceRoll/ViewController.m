@@ -50,12 +50,12 @@ static NSString *TotalScoreKey = @"totalScore";
     self.sumLabel.text = [NSString stringWithFormat:@"Dice Total: %d", self.sum];
 }
 
-- (void)updateRollTaken:(NSMutableArray *)array
+- (void)updateRollTaken:(int)sum
 {
-    int sum = 0;
-    ScoringData *scoringData = [[ScoringData alloc] init];
-    
-    sum += [scoringData checkDiceForScore:array];
+//    int sum = 0;
+//    ScoringData *scoringData = [[ScoringData alloc] init];
+//    
+//    sum += [scoringData checkDiceForScore:array];
     
     if (sum == 0) {
         self.sum = 0;
@@ -71,6 +71,14 @@ static NSString *TotalScoreKey = @"totalScore";
     }
     
     [self updateRollScore];
+}
+
+- (int)scoreDice:(NSMutableArray *)array {
+    ScoringData *scoringData = [[ScoringData alloc] init];
+    
+    int sum = [scoringData checkDiceForScore:array];
+    
+    return sum;
 }
 
 - (void)resetDieViews
@@ -119,8 +127,21 @@ static NSString *TotalScoreKey = @"totalScore";
     [self checkForHeldDie:self.fourthDieView position:4 forDice:dice];
     [self checkForHeldDie:self.fifthDieView position:5 forDice:dice];
     [self checkForHeldDie:self.sixthDieView position:6 forDice:dice];
-
-    [self updateRollTaken:dice];
+    
+    int sum = [self scoreDice:dice];
+    
+    BOOL diceAllHavePoints = YES;
+    for (DiceView *die in dice) {
+        if (!die.dieHasPoints) {
+            diceAllHavePoints = NO;
+        }
+    }
+    
+    if (diceAllHavePoints) {
+        [self resetDieViews];
+    }
+    
+    [self updateRollTaken:sum];
 }
 
 - (IBAction)dieTapped:(UITapGestureRecognizer *)sender
@@ -142,13 +163,15 @@ static NSString *TotalScoreKey = @"totalScore";
     
     dieView.dieNumber = dieNumber;
     
-    if (!dieView.isHeldDie) {
+    if (dieView.isHeldDie) {
+        if (!dieView.dieHasPoints) {
+            //error
+        } else {
+            [dieView setUserInteractionEnabled:NO];
+        }
+    } else {
         dieView.roll = [self rollDie:dieData forView:dieView];
         [dice addObject:dieView];
-    } else {
-        [dieView setDieHasPoints:YES];
-        [dieView setBackgroundColor:[UIColor redColor]];
-        [dieView setUserInteractionEnabled:NO];
     }
 }
 
